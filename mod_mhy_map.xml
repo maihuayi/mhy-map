@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" version="3.2" method="upgrade">
+	<name>mod_mhy_map</name>
+	<version>1.0.0</version>
+	<creationDate>2014-11-18</creationDate>
+	<author>bsdnemo</author>
+	<authorEmail>bsdnemo at gmail dot com</authorEmail>
+	<authorUrl>maihuayi.com</authorUrl>
+	<copyright>Copyright (C) 2014.</copyright>
+	<license>GNU/GPL V2</license>
+	<description>MOD_MHY_MAP_XML_DESCRIPTION</description>
+	<files>
+		<filename>helper.php</filename>
+		<filename module="mod_mhy_map">mod_mhy_map.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="map_type" type="list"
+					default="baidu"
+					LABEL="MOD_MHY_MAP_FIELD_MAP_TYPE_LABEL"
+					description="MOD_MHY_MAP_FIELD_MAP_TYPE_DESC"
+				>
+					<option value="baidu">MOD_MHY_MAP_BAIDU</option>
+				</field>
+			</fieldset>
+			<fieldset name="BAIDU_MAP_SETTINGS">
+				<field name="baidu_ak" type="text"
+					size="40"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_AK_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_AK_DESC"
+				/>
+				<field name="baidu_address" type="text"
+					size="40"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_COORDINATE_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_COORDINATE_DESC"
+					required="true"
+				/>
+				<field name="baidu_zoom_level" type="text"
+					size="20"
+					default="15"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_ZOOM_LEVEL_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_ZOOM_LEVEL_DESC"
+				/>
+				<field name="baidu_width" type="text"
+					size="20"
+					default="600"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_WIDTH_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_WIDTH_DESC"
+				/>
+				<field name="baidu_height" type="text"
+					size="20"
+					default="400"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_HEIGHT_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_HEIGHT_DESC"
+				/>
+				<field name="baidu_show_marker" type="radio"
+					default="1"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_MARKER_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_MARKER_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="baidu_show_info" type="radio"
+					default="0"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_INFO_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_INFO_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>	
+				</field>
+				<field name="baidu_info_title" type="text"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_INFO_TITLE_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_INFO_TITLE_DESC"
+				/>
+				<field name="baidu_info_content" type="text"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_INFO_CONTENT_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_INFO_CONTENT_DESC"
+				/>
+				<field name="baidu_info_width" type="text"
+					default="80"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_INFO_WIDTH_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_INFO_WIDTH_DESC"
+				/>
+				<field name="baidu_info_height" type="text"
+					default="50"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_INFO_HEIGHT_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_INFO_HEIGHT_DESC"
+				/>
+				<field name="baidu_show_overview" type="radio"
+					default="0"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_OVERVIEW_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_OVERVIEW_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="baidu_show_navigation" type="radio"
+					default="1"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_NAVIGATION_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_NAVIGATION_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="baidu_show_scale" type="radio"
+					default="1"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_SCALE_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_SCALE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="baidu_show_map_type" type="radio"
+					default="1"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_SHOW_MAP_TYPE_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_SHOW_MAP_TYPE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="baidu_city" type="text"
+					size="20"
+					LABEL="MOD_MHY_MAP_FIELD_BAIDU_CITY_LABEL"
+					description="MOD_MHY_MAP_FIELD_BAIDU_CITY_DESC"
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					LABEL="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
