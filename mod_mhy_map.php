@@ -11,7 +11,6 @@ defined('_JEXEC') or die;
 require dirname(__FILE__) . '/helper.php';
 
 $map = ModMHYMapHelper::getMap($params);
-
 $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
 if($map) {
 	require JModuleHelper::getLayoutPath('mod_mhy_map', 'default');

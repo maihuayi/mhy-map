@@ -19,19 +19,31 @@ class ModMHYMapHelper
 	 */
 	public static function getMap($params)
 	{
-		$baidu_coordinate = $params->get("baidu_coordinate");
+		$baidu_coordinate = self::getGeocoding($params);
+		$params->set('baidu_coordinate', $baidu_coordinate);
 		if (empty($baidu_coordinate))
 		{
 			return false;
 		}
-		
 		switch ($params->get("map_type"))
 		{
-			case "baidu_map":
+			case "baidu":
 					self::getBaiduMap($params);
 					break;
 		}
 		return true;
+	}
+	
+	public static function getGeocoding($params) {
+		$url = "http://api.map.baidu.com/geocoder/v2/?address=" . urlencode($params->get('baidu_address')) . "&output=json&ak=" . $params->get('baidu_ak');
+		$result = file_get_contents($url);
+		$result_json = json_decode($result);
+		if($result_json->status == 0 && !empty($result_json->result)) {
+			return $result_json->result->location->lng . ',' . $result_json->result->location->lat;
+		}
+		else {
+			return false;	
+		}
 	}
 	
 	/**
