@@ -130,6 +130,6 @@ class ModMHYMapHelper
 						});
 					});";
 		$doc->addScriptDeclaration($script);
-		$doc->addScript("http://api.map.baidu.com/api?v=1.5&ak=" . $params->get('baidu_ak') ."&callback=initialize", "text/javascript", true);
+		$doc->addScript("http://api.map.baidu.com/api?v=2.0&ak=" . $params->get('baidu_ak') ."&callback=initialize", "text/javascript", true);
 	}
 }
